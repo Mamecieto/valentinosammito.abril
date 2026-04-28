@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iniciar sesión</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body data-page="login">
+  <main class="card">
+    <!-- Encabezado con botón de cerrar y ayuda -->
+    <div class="card-header">
+      <button type="button" class="icon-button" aria-label="Cerrar">×</button>
+      <span class="help-text">Need help?</span>
+    </div>
+
+
+    <h1>Iniciar sesión</h1>
+
+
+    <!-- Formulario de login: email y contraseña -->
+    <form id="loginForm" class="auth-form">
+      <input type="email" id="email" name="email" placeholder="Correo electrónico" required>
+      <input type="password" id="password" name="password" placeholder="Contraseña" required>
+      <a class="help-link" href="#">Olvidaste tu contraseña?</a>
+      <button type="submit" class="primary-button">Entrar</button>
+    </form>
+
+
+    <!-- Enlace para ir a registro -->
+    <p class="switch-text" id="message">¿No tienes cuenta? <a href="register.html">Registrarse</a></p>
+  </main>
+
+  <script src="app.js" defer></script>
+</body>
+
+</html>

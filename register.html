@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registrarse</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body data-page="register">
+  <main class="card">
+    <!-- Encabezado con botón de cerrar y ayuda -->
+    <div class="card-header">
+      <button type="button" class="icon-button" aria-label="Cerrar">×</button>
+      <span class="help-text">Need help?</span>
+    </div>
+
+
+    <h1>Crear cuenta</h1>
+
+
+    <!-- Formulario de registro: datos personales y contraseña -->
+    <form id="registerForm" class="auth-form">
+      <input type="text" id="name" name="name" placeholder="Nombre completo" required>
+      <input type="email" id="email" name="email" placeholder="Correo electrónico" required>
+
+
+      <!-- Selección de género: M (Masculino) o S (Femenino) -->
+      <div class="radio-group">
+        <label class="radio-label">
+          <input type="radio" name="gender" value="m" required>
+          M
+        </label>
+        <label class="radio-label">
+          <input type="radio" name="gender" value="s" required>
+          S
+        </label>
+      </div>
+
+
+      <input type="password" id="password" name="password" placeholder="Contraseña" required>
+      <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirmar contraseña" required>
+
+
+      <!-- Checkbox para aceptar términos -->
+      <label class="checkbox-label">
+        <input type="checkbox" id="terms" required>
+        Acepto los términos del acuerdo
+      </label>
+
+      <button type="submit" class="primary-button">Registrarse</button>
+    </form>
+
+
+    <!-- Enlace para ir a login -->
+    <p class="switch-text">¿Ya tienes una cuenta? <a href="login.html">Iniciar sesión</a></p>
+  </main>
+
+  <script src="app.js" defer></script>
+</body>
+
+</html>
