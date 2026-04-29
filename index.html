@@ -44,6 +44,9 @@
 
       <h1>Iniciar sesión</h1>
 
+      <!-- Mensaje de error -->
+      <div id="login-error" class="error-message hidden"></div>
+
       <form id="loginForm" class="auth-form">
         <input type="email" id="login-email" name="email" placeholder="Correo electrónico" required>
         <input type="password" id="login-password" name="password" placeholder="Contraseña" required>
@@ -64,6 +67,9 @@
       </div>
 
       <h1>Crear cuenta</h1>
+
+      <!-- Mensaje de error -->
+      <div id="register-error" class="error-message hidden"></div>
 
       <form id="registerForm" class="auth-form">
         <input type="text" id="reg-name" name="name" placeholder="Nombre completo" required>

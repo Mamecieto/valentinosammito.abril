@@ -92,6 +92,38 @@ function updateLoginMessage() {
 
 
 // ========================================
+// MENSAJES DE ERROR/ÉXITO EN EL DOM
+// ========================================
+
+function showError(elementId, message) {
+  const el = document.getElementById(elementId);
+  el.textContent = message;
+  el.classList.remove('hidden');
+  
+  // Ocultar después de 5 segundos
+  setTimeout(() => {
+    el.classList.add('hidden');
+  }, 5000);
+}
+
+function hideError(elementId) {
+  const el = document.getElementById(elementId);
+  el.classList.add('hidden');
+}
+
+function showSuccess(elementId, message) {
+  const el = document.getElementById(elementId);
+  el.textContent = message;
+  el.classList.remove('hidden');
+  
+  // Ocultar después de 5 segundos
+  setTimeout(() => {
+    el.classList.add('hidden');
+  }, 5000);
+}
+
+
+// ========================================
 // PÁGINA DE REGISTRO
 // ========================================
 
@@ -99,6 +131,7 @@ function handleRegisterPage() {
   const form = document.getElementById('registerForm');
   form.addEventListener('submit', function (event) {
     event.preventDefault();
+    hideError('register-error');
 
     const name = document.getElementById('reg-name').value.trim();
     const email = document.getElementById('reg-email').value.trim();
@@ -107,19 +140,26 @@ function handleRegisterPage() {
     const confirmPassword = document.getElementById('reg-confirmPassword').value;
 
     if (!name || !email || !gender || !password || !confirmPassword) {
-      alert('Completa todos los campos.');
+      showError('register-error', 'Completa todos los campos.');
       return;
     }
 
     if (password !== confirmPassword) {
-      alert('Las contraseñas no coinciden.');
+      showError('register-error', 'Las contraseñas no coinciden.');
       return;
     }
 
     const user = { name, email, gender, password };
     localStorage.setItem('user', JSON.stringify(user));
-    alert('Registro guardado. Ahora puedes iniciar sesión.');
-    navigateTo('login');
+    showSuccess('register-error', '¡Registro exitoso! Ahora puedes iniciar sesión.');
+    
+    // Limpiar formulario
+    form.reset();
+    
+    // Redirigir a login después de 1.5 segundos
+    setTimeout(() => {
+      navigateTo('login');
+    }, 1500);
   });
 }
 
@@ -133,23 +173,25 @@ function handleLoginPage() {
   
   form.addEventListener('submit', function (event) {
     event.preventDefault();
+    hideError('login-error');
 
     const user = getSavedUser();
 
+    // Si no hay usuario registrado, mostrar mensaje de error (no redirigir)
     if (!user) {
-      alert('No tienes una cuenta registrada.');
-      navigateTo('register');
+      showError('login-error', 'No hay cuenta registrada. Por favor, regístrate primero.');
       return;
     }
 
     const email = document.getElementById('login-email').value.trim();
     const password = document.getElementById('login-password').value;
 
+    // Validar credenciales
     if (email === user.email && password === user.password) {
       setLoggedIn();
       navigateTo('main');
     } else {
-      alert('Correo o contraseña incorrectos.');
+      showError('login-error', 'Correo o contraseña incorrectos. Intenta de nuevo.');
     }
   });
 }

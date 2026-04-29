@@ -243,6 +243,41 @@ input::placeholder {
 
 
 /* ========================================
+   MENSAJES DE ERROR
+   ======================================== */
+
+.error-message {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #dc2626;
+  padding: 12px 16px;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.error-message.hidden {
+  display: none;
+}
+
+.success-message {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  color: #16a34a;
+  padding: 12px 16px;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.success-message.hidden {
+  display: none;
+}
+
+
+/* ========================================
    NAVEGACIÓN SPA
    ======================================== */
 
