@@ -10,6 +10,7 @@
 .welcome-btn {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 14px;
   padding: 20px 44px;
   border: none;
@@ -19,6 +20,7 @@
   cursor: pointer;
   text-decoration: none;
   white-space: nowrap;
+  min-width: 220px !important;
   box-shadow: 0 4px 24px 0 rgba(67,56,202,0.13);
   transition: transform 0.13s, box-shadow 0.13s;
 }
@@ -48,22 +50,7 @@
   color: #111827;
   text-shadow: none;
 }
-.welcome-btn.login {
-  background: linear-gradient(90deg, #2563eb 0%, #6366f1 100%);
-  color: #fff;
-}
-.welcome-btn.register {
-  background: linear-gradient(90deg, #a855f7 0%, #6366f1 100%);
-  color: #fff;
-}
-.welcome-btn svg {
-  width: 24px;
-  height: 24px;
-  fill: none;
-}
-.welcome-btn:active {
-  transform: scale(0.97);
-}
+
 /* ========================================
    CONFIGURACIÓN GLOBAL
    ======================================== */
@@ -256,6 +243,24 @@ input::placeholder {
 
 
 /* ========================================
+   NAVEGACIÓN SPA
+   ======================================== */
+
+/* Contenedor de vista */
+.view {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Clase para ocultar vistas */
+.hidden {
+  display: none !important;
+}
+
+
+/* ========================================
    NAVEGACIÓN ENTRE PÁGINAS
    ======================================== */
 
@@ -269,14 +274,22 @@ input::placeholder {
 
 
 /* Enlace en switch-text: azul y sin subrayado */
-.switch-text a {
+.switch-text a,
+.switch-text button {
   color: #4f46e5;
   text-decoration: none;
   font-weight: 600;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: inherit;
+  font-family: inherit;
+  padding: 0;
 }
 
 
 /* Efecto hover en enlace de navegación: subrayado */
-.switch-text a:hover {
+.switch-text a:hover,
+.switch-text button:hover {
   text-decoration: underline;
 }

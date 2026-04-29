@@ -4,33 +4,107 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bienvenida</title>
+  <title>Aplicación SPA</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-  <!-- Tarjeta de bienvenida con opciones de navegación -->
-  <main class="card">
-    <div class="welcome-header">
-      <div class="welcome-icon">
-        <svg width="48" height="48" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="24" cy="24" r="24" fill="url(#a)"/><path d="M24 24c3.314 0 6-2.686 6-6s-2.686-6-6-6-6 2.686-6 6 2.686 6 6 6Zm0 2c-4.418 0-12 2.238-12 6.667V36h24v-3.333C36 28.238 28.418 26 24 26Z" fill="#fff"/><defs><linearGradient id="a" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse"><stop stop-color="#6366f1"/><stop offset="1" stop-color="#a855f7"/></linearGradient></defs></svg>
+  <!-- Vista de Bienvenida -->
+  <section id="welcome-view" class="view">
+    <main class="card">
+      <div class="welcome-header">
+        <div class="welcome-icon">
+          <svg width="48" height="48" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="24" cy="24" r="24" fill="url(#a)"/><path d="M24 24c3.314 0 6-2.686 6-6s-2.686-6-6-6-6 2.686-6 6 2.686 6 6 6Zm0 2c-4.418 0-12 2.238-12 6.667V36h24v-3.333C36 28.238 28.418 26 24 26Z" fill="#fff"/><defs><linearGradient id="a" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse"><stop stop-color="#6366f1"/><stop offset="1" stop-color="#a855f7"/></linearGradient></defs></svg>
+        </div>
+        <h1 class="welcome-title">Bienvenido</h1>
+        <p class="welcome-subtitle">A nuestra plataforma</p>
+        <hr class="welcome-divider">
+        <p class="welcome-desc">Por favor, elige una opción para continuar</p>
       </div>
-      <h1 class="welcome-title">Bienvenido</h1>
-      <p class="welcome-subtitle">A nuestra plataforma</p>
-      <hr class="welcome-divider">
-      <p class="welcome-desc">Por favor, elige una opción para continuar</p>
-    </div>
-    <div class="welcome-actions">
-      <a class="welcome-btn login" href="login.html">
-        <svg viewBox="0 0 32 32" fill="none"><rect x="4" y="15" width="14" height="2.5" rx="1.25" fill="#fff"/><path d="M22 9v14a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 8 23V9a2.5 2.5 0 0 1 2.5-2.5h9A2.5 2.5 0 0 1 22 9Zm-8 8h10m0 0-2.5-2.5m2.5 2.5-2.5 2.5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        Iniciar sesión
-      </a>
-      <a class="welcome-btn register" href="register.html">
-        <svg viewBox="0 0 32 32" fill="none"><path d="M21 28v-2.5a5 5 0 0 0-5-5h-6a5 5 0 0 0-5 5V28" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10.5" cy="11" r="5" stroke="#fff" stroke-width="2"/><path d="M26 12v7m3.5-3.5H22.5" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
-        Registrarse
-      </a>
-    </div>
-  </main>
+      <div class="welcome-actions">
+        <button class="welcome-btn login" data-navigate="login">
+          <svg viewBox="0 0 32 32" fill="none"><rect x="4" y="15" width="14" height="2.5" rx="1.25" fill="#fff"/><path d="M22 9v14a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 8 23V9a2.5 2.5 0 0 1 2.5-2.5h9A2.5 2.5 0 0 1 22 9Zm-8 8h10m0 0-2.5-2.5m2.5 2.5-2.5 2.5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Iniciar sesión
+        </button>
+        <button class="welcome-btn register" data-navigate="register">
+          <svg viewBox="0 0 32 32" fill="none"><path d="M21 28v-2.5a5 5 0 0 0-5-5h-6a5 5 0 0 0-5 5V28" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10.5" cy="11" r="5" stroke="#fff" stroke-width="2"/><path d="M26 12v7m3.5-3.5H22.5" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
+          Registrarse
+        </button>
+      </div>
+    </main>
+  </section>
+
+  <!-- Vista de Login -->
+  <section id="login-view" class="view hidden">
+    <main class="card">
+      <div class="card-header">
+        <button type="button" class="icon-button" aria-label="Cerrar" data-navigate="welcome">×</button>
+        <span class="help-text">Need help?</span>
+      </div>
+
+      <h1>Iniciar sesión</h1>
+
+      <form id="loginForm" class="auth-form">
+        <input type="email" id="login-email" name="email" placeholder="Correo electrónico" required>
+        <input type="password" id="login-password" name="password" placeholder="Contraseña" required>
+        <a class="help-link" href="#">Olvidaste tu contraseña?</a>
+        <button type="submit" class="primary-button">Entrar</button>
+      </form>
+
+      <p class="switch-text" id="login-message">¿No tienes cuenta? <button data-navigate="register">Registrarse</button></p>
+    </main>
+  </section>
+
+  <!-- Vista de Registro -->
+  <section id="register-view" class="view hidden">
+    <main class="card">
+      <div class="card-header">
+        <button type="button" class="icon-button" aria-label="Cerrar" data-navigate="welcome">×</button>
+        <span class="help-text">Need help?</span>
+      </div>
+
+      <h1>Crear cuenta</h1>
+
+      <form id="registerForm" class="auth-form">
+        <input type="text" id="reg-name" name="name" placeholder="Nombre completo" required>
+        <input type="email" id="reg-email" name="email" placeholder="Correo electrónico" required>
+
+        <div class="radio-group">
+          <label class="radio-label">
+            <input type="radio" name="gender" value="m" required>
+            M
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="gender" value="f" required>
+            F
+          </label>
+        </div>
+
+        <input type="password" id="reg-password" name="password" placeholder="Contraseña" required>
+        <input type="password" id="reg-confirmPassword" name="confirmPassword" placeholder="Confirmar contraseña" required>
+
+        <label class="checkbox-label">
+          <input type="checkbox" id="terms" required>
+          Acepto los términos del acuerdo
+        </label>
+
+        <button type="submit" class="primary-button">Registrarse</button>
+      </form>
+
+      <p class="switch-text">¿Ya tienes una cuenta? <button data-navigate="login">Iniciar sesión</button></p>
+    </main>
+  </section>
+
+  <!-- Vista Principal (protegida) -->
+  <section id="main-view" class="view hidden">
+    <main class="card">
+      <h1>Bienvenido a la página principal</h1>
+      <p>Has iniciado sesión correctamente.</p>
+      <button class="primary-button" data-navigate="welcome" id="logout-btn">Cerrar sesión</button>
+    </main>
+  </section>
+
+  <script src="app.js"></script>
 </body>
 
 </html>
