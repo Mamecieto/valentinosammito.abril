@@ -1,3 +1,69 @@
+(/* Botones grandes de bienvenida tipo imagen */)
+.welcome-actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 36px;
+  margin-top: 38px;
+}
+.welcome-btn {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 20px 44px;
+  border: none;
+  border-radius: 16px;
+  font-size: 1.25rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+  box-shadow: 0 4px 24px 0 rgba(67,56,202,0.13);
+  transition: transform 0.13s, box-shadow 0.13s;
+}
+.welcome-btn.login {
+  background: linear-gradient(90deg, #2563eb 0%, #3b82f6 100%);
+  color: #fff;
+}
+.welcome-btn.register {
+  background: linear-gradient(90deg, #a855f7 0%, #6366f1 100%);
+  color: #fff;
+}
+.welcome-btn svg {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+}
+.welcome-btn:active {
+  transform: scale(0.97);
+}
+
+/* Mejorar visibilidad de textos de bienvenida */
+.welcome-title {
+  color: #111827;
+  text-shadow: none;
+}
+.welcome-subtitle, .welcome-desc {
+  color: #111827;
+  text-shadow: none;
+}
+.welcome-btn.login {
+  background: linear-gradient(90deg, #2563eb 0%, #6366f1 100%);
+  color: #fff;
+}
+.welcome-btn.register {
+  background: linear-gradient(90deg, #a855f7 0%, #6366f1 100%);
+  color: #fff;
+}
+.welcome-btn svg {
+  width: 24px;
+  height: 24px;
+  fill: none;
+}
+.welcome-btn:active {
+  transform: scale(0.97);
+}
 /* ========================================
    CONFIGURACIÓN GLOBAL
    ======================================== */
