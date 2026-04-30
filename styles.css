@@ -328,3 +328,108 @@ input::placeholder {
 .switch-text button:hover {
   text-decoration: underline;
 }
+
+
+/* ========================================
+   DADO D20 Y ESTADÍSTICAS
+   ======================================== */
+
+.dice-panel {
+  display: grid;
+  gap: 14px;
+  padding: 16px;
+  margin: 12px 0;
+  border-radius: 28px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.96) 0%, rgba(247,250,252,0.96) 100%);
+  border: 1px solid rgba(99,102,241,0.18);
+  box-shadow: 0 20px 60px rgba(15, 23, 42, 0.12);
+}
+
+.dice-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.dice-result {
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  padding: 18px;
+  background: rgba(255, 255, 255, 0.98);
+  border-radius: 28px;
+  border-top: 1px solid rgba(99, 102, 241, 0.16);
+  border-bottom: 1px solid rgba(99, 102, 241, 0.16);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.7), 0 14px 32px rgba(15, 23, 42, 0.06);
+}
+
+.dice-image {
+  width: 170px;
+  height: 170px;
+  display: grid;
+  place-items: center;
+  clip-path: polygon(50% 0%, 84% 18%, 100% 45%, 92% 75%, 64% 96%, 50% 100%, 36% 96%, 8% 75%, 0% 45%, 16% 18%);
+  background: radial-gradient(circle at 25% 20%, #fb923c 0%, #f97316 45%, #ea580c 100%);
+  border: 6px solid #c2410c;
+  box-shadow: 0 22px 48px rgba(0, 0, 0, 0.22);
+  position: relative;
+  transform: rotate(-4deg);
+}
+
+.dice-image::before,
+.dice-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  clip-path: inherit;
+}
+
+.dice-image::before {
+  background: linear-gradient(135deg, rgba(255,255,255,0.35), transparent 55%);
+  transform: translate(-8%, -8%) scale(1.03);
+  opacity: 0.7;
+}
+
+.dice-image::after {
+  background: linear-gradient(220deg, rgba(0,0,0,0.14), transparent 60%);
+  transform: translate(6%, 6%) scale(1.02);
+}
+
+.dice-image.hidden {
+  display: none;
+}
+
+.dice-image {
+  color: white;
+  font-size: 2.8rem;
+  font-weight: 900;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  z-index: 1;
+}
+
+.dice-result p {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.dice-stats {
+  display: grid;
+  gap: 6px;
+  padding: 10px 14px;
+  background: rgba(255,255,255,0.95);
+  border-radius: 20px;
+  border: 1px solid rgba(79,70,229,0.1);
+}
+
+.dice-stats p {
+  margin: 0;
+  color: #374151;
+  font-size: 0.95rem;
+}
+
+.dice-stats span {
+  font-weight: 700;
+  color: #111827;
+}

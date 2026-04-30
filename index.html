@@ -105,7 +105,25 @@
   <section id="main-view" class="view hidden">
     <main class="card">
       <h1>Bienvenido a la página principal</h1>
-      <p>Has iniciado sesión correctamente.</p>
+      <p id="main-welcome">Has iniciado sesión correctamente.</p>
+
+      <div class="dice-panel">
+        <div class="dice-actions">
+          <button id="roll-button" class="primary-button">Tirar dado</button>
+          <button id="reset-button" class="primary-button">Resetear estadísticas</button>
+        </div>
+
+        <div id="dice-result" class="dice-result">
+          <div id="dice-image" class="dice-image hidden"></div>
+          <p id="dice-value"></p>
+        </div>
+
+        <div class="dice-stats">
+          <p>Total de tiradas: <span id="roll-count">0</span></p>
+          <p>Promedio: <span id="roll-average">0.00</span></p>
+        </div>
+      </div>
+
       <button class="primary-button" data-navigate="welcome" id="logout-btn">Cerrar sesión</button>
     </main>
   </section>
